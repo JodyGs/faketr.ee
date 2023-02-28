@@ -88,34 +88,48 @@ function LinkCard({
 
 export default function Home() {
 	return (
-		<div className="flex flex-col items-center w-full mt-16 px-8">
-			<Image
-				className="rounded-full"
-				alt={"Jody Gonzales"}
-				src={
-					"https://pbs.twimg.com/profile_images/1561019205968957440/f9P9z31O_400x400.png"
-				}
-				width={96}
-				height={96}
-			/>
-			<h1 className="font-bold mt-4 text-xl">Jody Gonzales</h1>
-      <div className="flex space-x-4 mb-8 mt-2">
-				{MY_STACK.map(({name, icon: Icon }) => (
-					<a key={name}>
-						<Icon className="h-6 w-6 fill-white" />
-					</a>
+		<>
+			<div className="flex flex-col items-center w-full mt-16 px-8">
+				<Image
+					className="rounded-full"
+					alt={"Jody Gonzales"}
+					src={
+						"https://pbs.twimg.com/profile_images/1561019205968957440/f9P9z31O_400x400.png"
+					}
+					width={96}
+					height={96}
+				/>
+				<h1 className="font-bold mt-4 text-xl">Jody Gonzales</h1>
+				<div className="flex space-x-4 mb-8 mt-2">
+					{MY_STACK.map(({ name, icon: Icon }) => (
+						<a key={name}>
+							<Icon className="h-6 w-6 fill-white" />
+						</a>
+					))}
+				</div>
+				{LINKS.map((link) => (
+					<LinkCard key={link.href} {...link} />
 				))}
+				<div className="flex space-x-4 mt-8">
+					{SOCIALS.map(({ href, name, icon: Icon }) => (
+						<a key={name} href={href}>
+							<Icon className="h-6 w-6 fill-white" />
+						</a>
+					))}
+				</div>
 			</div>
-			{LINKS.map((link) => (
-				<LinkCard key={link.href} {...link} />
-			))}
-			<div className="flex space-x-4 mt-8">
-				{SOCIALS.map(({ href, name, icon: Icon }) => (
-					<a key={name} href={href}>
-						<Icon className="h-6 w-6 fill-white" />
+			<div className="absolute bottom-0 right-0">
+				<p>
+					linktr.ee clone 🌀 by JodyGs (
+					<a
+						href="https://github.com/JodyGs/my-linktree"
+						className="text-blue-400 hover:text-blue-300"
+					>
+						source code
 					</a>
-				))}
+					)
+				</p>
 			</div>
-		</div>
+		</>
 	);
 }
