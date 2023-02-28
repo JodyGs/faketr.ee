@@ -118,7 +118,7 @@ export default function Home() {
 					))}
 				</div>
 			</div>
-			<div className="absolute bottom-0 right-0">
+			<div className="absolute bottom-2 right-2">
 				<p>
 					linktr.ee clone 🌀 by JodyGs (
 					<a
